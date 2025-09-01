@@ -10,11 +10,11 @@ const App: React.FC = () => {
     const [lessons, setLessons] = useState<Lesson[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedDay, setSelectedDay] = useState<string | null>(null);
-    const [selectedPerson, setSelectedPerson] = useState<"Все" | "Ерасыл" | "Асель">("Все");
+    const [selectedPerson, setSelectedPerson] = useState<"Все" | "Ерасыл" | "Асёка">("Все");
 
     useEffect(() => {
         const savedPerson = localStorage.getItem("selectedPerson");
-        if (savedPerson === "Ерасыл" || savedPerson === "Асель") setSelectedPerson(savedPerson);
+        if (savedPerson === "Ерасыл" || savedPerson === "Асёка") setSelectedPerson(savedPerson);
 
         const fetchData = async () => {
             try {
@@ -35,9 +35,9 @@ const App: React.FC = () => {
     const grouped = orderedDays.map((dayName) => {
         const slots: Slot[] = timeSlots.map((slot) => {
             const yerassyl: Lesson | null =
-                selectedPerson === "Асель" ? null : lessons.find((l) => l.day === dayName && l.time_slot === slot && l.person === "Ерасыл") || null;
+                selectedPerson === "Асёка" ? null : lessons.find((l) => l.day === dayName && l.time_slot === slot && l.person === "Ерасыл") || null;
             const asel: Lesson | null =
-                selectedPerson === "Ерасыл" ? null : lessons.find((l) => l.day === dayName && l.time_slot === slot && l.person === "Асель") || null;
+                selectedPerson === "Ерасыл" ? null : lessons.find((l) => l.day === dayName && l.time_slot === slot && l.person === "Асёка") || null;
             return { slot, yerassyl, asel };
         });
 

@@ -9,7 +9,7 @@ const dayShort: Record<string, string> = {
 
 const personBackgrounds = {
     "Ерасыл": "images/toothless.jpg",
-    "Асель": "images/Cinnamoroll.jpg",
+    "Асёка": "images/Cinnamoroll.jpg",
 };
 
 const orderedDays = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];

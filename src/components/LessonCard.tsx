@@ -4,7 +4,7 @@ import { personBackgrounds } from "../utils/constants.ts";
 
 type Props = {
     lesson: Lesson | null;
-    person: "Ерасыл" | "Асель";
+    person: "Ерасыл" | "Асёка";
 };
 
 export const LessonCard: React.FC<Props> = ({ lesson, person }) => {
