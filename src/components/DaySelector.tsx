@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { orderedDays, dayShort } from "../utils/constants.ts";
 
 type Props = {
@@ -7,6 +7,15 @@ type Props = {
 };
 
 export const DaySelector: React.FC<Props> = ({ selectedDay, setSelectedDay }) => {
+    useEffect(() => {
+        const today = new Date().getDay();
+        if (today === 0) {
+            setSelectedDay(null);
+        } else {
+            const day = orderedDays[today - 1];
+            setSelectedDay(day);
+        }
+    }, [setSelectedDay]);
     return (
         <div className="flex flex-wrap gap-2 justify-center mb-4 sm:mb-6">
             <button
